@@ -5,6 +5,7 @@ import { loginAction } from '@/actions/login'
 
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { signIn } from 'next-auth/react'
 
 export default function Login() {
   const {
@@ -31,7 +32,9 @@ export default function Login() {
           <button className='w-full mt-2 inline-flex items-center justify-center text-sm font-bold bg-black text-white h-10 py-2 px-4 disabled:opacity-50'>SIGN IN</button>
         </form>
         <div className='w-full text-center text-sm'>OR</div>
-        <button className='w-full mt-2 inline-flex items-center justify-center text-sm font-bold bg-black text-white h-10 py-2 px-4 disabled:opacity-50'>SIGN IN WITH GITHUB</button>
+        <button onClick={() => signIn('github')} className='w-full mt-2 inline-flex items-center justify-center text-sm font-bold bg-black text-white h-10 py-2 px-4 disabled:opacity-50'>
+          SIGN IN WITH GITHUB
+        </button>
       </div>
     </div>
   )
